@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
-import lefish from "./augh.jpg";
+import lefish from "./images/augh.jpg";
 
 function App(): JSX.Element {
     return (
