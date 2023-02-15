@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import lefish from "./augh.jpg";
 
 function App(): JSX.Element {
     return (
@@ -10,10 +11,7 @@ function App(): JSX.Element {
                 Hello World
             </header>
             <h1> ur mom</h1>
-            <img
-                src="./src/augh.jpg"
-                alt="pufferfish eats carrot, makes funny noise"
-            />
+            <img src={lefish} alt="pufferfish eats carrot, makes funny noise" />
             <ol>
                 <li>1</li>
                 <li>2</li>
@@ -29,8 +27,24 @@ function App(): JSX.Element {
             <div>
                 <Container>
                     <Row>
-                        <Col>Column one</Col>
-                        <Col>Second Column.</Col>
+                        <div
+                            style={{
+                                width: 400,
+                                height: 200,
+                                backgroundColor: "red"
+                            }}
+                        >
+                            <Col>Column one</Col>
+                        </div>
+                        <div
+                            style={{
+                                width: 400,
+                                height: 200,
+                                backgroundColor: "blue"
+                            }}
+                        >
+                            <Col>Second Column.</Col>
+                        </div>
                     </Row>
                 </Container>
             </div>
