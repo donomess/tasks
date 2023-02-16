@@ -76,16 +76,17 @@ export function toShortForm(question: Question): string {
  */
 export function toMarkdown(question: Question): string {
     if (question.type == "multiple_choice_question") {
-        return (
+        let basic =
             "# " +
             question.name +
             "\n" +
             question.body +
             "\n" +
-            question.options.map((aoption: string) => "- " + aoption + "\n")
-        );
+            question.options.map((aoption: string) => "- " + aoption + "\n");
+        basic = basic.replaceAll(",", "").trim();
+        return basic;
     } else {
-        return question.name + "\n" + question.body + "\n";
+        return "# " + question.name + "\n" + question.body;
     }
 }
 
@@ -104,9 +105,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    question.published == false
-        ? (question.published = true)
-        : (question.published = false);
+    question.published = !question.published;
     return question;
 }
 
@@ -124,7 +123,6 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
         published: false
     };
 }
-
 /**
  * Return a new version of the given question, with the `newOption` added to
  * the list of existing `options`. Remember that the new Question MUST have
