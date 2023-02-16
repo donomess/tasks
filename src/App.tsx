@@ -12,11 +12,11 @@ function App(): JSX.Element {
             </header>
             <h1> ur mom</h1>
             <img src={lefish} alt="pufferfish eats carrot, makes funny noise" />
-            <ol>
+            <ul>
                 <li>1</li>
                 <li>2</li>
                 <li>3</li>
-            </ol>
+            </ul>
             <Button onClick={() => console.log("Hello World!")}>
                 Log Hello World
             </Button>
@@ -27,24 +27,26 @@ function App(): JSX.Element {
             <div>
                 <Container>
                     <Row>
-                        <div
-                            style={{
-                                width: 400,
-                                height: 200,
-                                backgroundColor: "red"
-                            }}
-                        >
-                            <Col>Column one</Col>
-                        </div>
-                        <div
-                            style={{
-                                width: 400,
-                                height: 200,
-                                backgroundColor: "blue"
-                            }}
-                        >
-                            <Col>Second Column.</Col>
-                        </div>
+                        <Col>
+                            Column one
+                            <div
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    backgroundColor: "red"
+                                }}
+                            />
+                        </Col>
+                        <Col>
+                            Second Column.
+                            <div
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    backgroundColor: "blue"
+                                }}
+                            />
+                        </Col>
                     </Row>
                 </Container>
             </div>
