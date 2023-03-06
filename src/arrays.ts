@@ -12,6 +12,12 @@ export function bookEndList(numbers: number[]): number[] {
     } else {
         return [];
     }
+    // Below is the way to do it with a nested ternary, but prettier throws a fit.
+    // return numbers.length > 1
+    //     ? [numbers[0], numbers[numbers.length - 1]]
+    //     : numbers.length > 0
+    //     ? [numbers[0], numbers[0]]
+    //     : [];
 }
 
 /**
@@ -83,11 +89,7 @@ export function allRGB(colors: string[]): boolean {
     const filterGreen = filterBlue.filter(
         (color: string): boolean => color != "green"
     );
-    if (filterGreen.length > 0) {
-        return false;
-    } else {
-        return true;
-    }
+    return filterGreen.length > 0 ? false : true;
 }
 
 /**
@@ -138,11 +140,7 @@ export function injectPositive(values: number[]): number[] {
             return value;
         }
     });
-    if (!foundNeg) {
-        makeSum.push(posSum);
-    } else {
-        const neg = makeSum.findIndex((negative: number) => negative < 0);
-        makeSum.splice(neg + 1, 0, negSum);
-    }
+    const neg = makeSum.findIndex((negative: number) => negative < 0);
+    !foundNeg ? makeSum.push(posSum) : makeSum.splice(neg + 1, 0, negSum);
     return makeSum;
 }
