@@ -64,7 +64,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
         (message: string): boolean => !message.includes("?")
     );
     return noQs.map((message) =>
-        message.includes("!") ? (message = message.toUpperCase()) : message
+        message.includes("!") ? message.toUpperCase() : message
     );
 };
 
